@@ -1,7 +1,24 @@
 const express = require("express");
+const mongoose = require("mongoose");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
+
+// Database connection
+mongoose
+  .connect(process.env.MONGODB_URI || "mongodb://localhost:27017/googlebooks", {
+    useNewUrlParse: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("Successfully connected to MongoDB database!");
+  })
+  .catch(err => {
+    console.log(err);
+    process.exit(1);
+  });
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
