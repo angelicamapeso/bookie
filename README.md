@@ -1,10 +1,10 @@
-# Create React Express App
+# Bookie
 
-## About This Boilerplate
+Bookie is a place for book enthusiasts to share their recommendeds. Head to the Search page to look up a book and save it to the list, or go to the Recommended page to see what others have already recommended.
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+## Purpose
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+Bookie is practice for creating a CRUD application using React. It uses starter boilerplate code for setting up an Express server and connecting it to the React front-end.
 
 ## Starting the app locally
 
@@ -24,6 +24,13 @@ npm start
 
 Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
 
-## Deployment (Heroku)
+## Built With
 
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+### Front-End
+
+- [React](https://reactjs.org/)
+
+### Back-End
+
+- [Express](https://expressjs.com/)
+- [Mongoose](https://mongoosejs.com/)
