@@ -10,4 +10,19 @@ router.get("/books", async (req, res) => {
   }
 });
 
+router.post("/books", async (req, res) => {
+  try {
+    const result = await Book.findOneAndUpdate(
+      {
+        booksId: req.body.booksId,
+      },
+      req.body,
+      { upsert: true }
+    );
+    res.status(201).json({ data: result });
+  } catch (err) {
+    res.status(500).json({ err: err.message });
+  }
+});
+
 module.exports = router;
