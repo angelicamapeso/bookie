@@ -4,25 +4,14 @@ import { getSavedBooks } from "./API.js";
 const BookContext = createContext();
 
 export function BookProvider(props) {
-  const [savedBooks, setSavedBooks] = useState({
-    err: "",
-    books: [],
-  });
+  const [savedBooks, setSavedBooks] = useState([]);
 
   useEffect(() => {
-    getSavedBooks()
-      .then(result => {
-        setSavedBooks({
-          err: "",
-          books: result,
-        });
-      })
-      .catch(err => {
-        setSavedBooks(prevState => ({
-          err: err.message,
-          ...prevState,
-        }));
+    getSavedBooks().then(result => {
+      setSavedBooks({
+        books: result,
       });
+    });
   }, []);
 
   return <BookContext.Provider value={{ savedBooks }} {...props} />;
