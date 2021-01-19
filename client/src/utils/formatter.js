@@ -6,6 +6,6 @@ export function markSearchSaved(savedBooks, searchResults) {
     if (foundSaved) {
       return { ...searchResult, saved: true };
     }
-    return searchResult;
+    return { ...searchResult, saved: false };
   });
 }
