@@ -7,7 +7,7 @@ function BookCard({
   book: { booksId, title, authors, description, image, link, saved },
   ...props
 }) {
-  const { handleSave } = useBooks();
+  const { handleSave, handleDelete } = useBooks();
   const saveButton = (
     <Button
       onClick={() =>
@@ -24,7 +24,9 @@ function BookCard({
       Save
     </Button>
   );
-  const deleteButton = <Button>Delete</Button>;
+  const deleteButton = (
+    <Button onClick={() => handleDelete(booksId)}>Delete</Button>
+  );
 
   return (
     <Card className="flex-row mb-3" {...props}>
