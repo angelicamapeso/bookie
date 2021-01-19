@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
@@ -7,9 +7,12 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import BookCard from "../BookCard";
 import { searchBooks } from "../../utils/API";
+import { useBooks } from "../../utils/BookContext";
+import { markSearchSaved } from "../../utils/formatter";
 
 function SearchBooks() {
   const [searchResults, setSearchResults] = useState([]);
+  const { savedBooks } = useBooks();
   const [err, setErr] = useState("");
   const searchInput = useRef();
 
@@ -22,10 +25,13 @@ function SearchBooks() {
 
     searchBooks(toSearch).then(results => {
       setErr("");
-      console.log(results);
-      setSearchResults(results);
+      setSearchResults(markSearchSaved(savedBooks, results));
     });
   };
+
+  useEffect(() => {
+    setSearchResults(prevState => markSearchSaved(savedBooks, prevState));
+  }, [savedBooks]);
 
   return (
     <>
