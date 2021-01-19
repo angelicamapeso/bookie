@@ -7,7 +7,7 @@ export function searchBooks(search) {
     .then(response => response.json())
     .then(result =>
       result.items.map(item => ({
-        id: item.id,
+        booksId: item.id,
         title: item.volumeInfo.title,
         authors: item.volumeInfo.authors,
         description: item.volumeInfo.description,
