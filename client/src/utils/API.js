@@ -1,5 +1,11 @@
 const API_KEY = process.env.REACT_APP_API_KEY;
 
+export function deleteBook(booksId) {
+  return fetch(`/api/books/${booksId}`, {
+    method: "DELETE",
+  }).then(response => response.json());
+}
+
 export function saveBook(book) {
   const toSend = { ...book };
   return fetch("/api/books", {
