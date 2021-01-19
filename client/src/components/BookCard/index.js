@@ -1,12 +1,29 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import { useBooks } from "../../utils/BookContext";
 
 function BookCard({
-  book: { title, authors, description, image, link, saved },
+  book: { booksId, title, authors, description, image, link, saved },
   ...props
 }) {
-  const saveButton = <Button>Save</Button>;
+  const { handleSave } = useBooks();
+  const saveButton = (
+    <Button
+      onClick={() =>
+        handleSave({
+          booksId,
+          title,
+          authors,
+          description,
+          image,
+          link,
+        })
+      }
+    >
+      Save
+    </Button>
+  );
   const deleteButton = <Button>Delete</Button>;
 
   return (
