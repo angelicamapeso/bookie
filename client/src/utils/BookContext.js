@@ -8,9 +8,7 @@ export function BookProvider(props) {
 
   useEffect(() => {
     getSavedBooks().then(result => {
-      setSavedBooks({
-        books: result,
-      });
+      setSavedBooks(result);
     });
   }, []);
 
