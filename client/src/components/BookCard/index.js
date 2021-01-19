@@ -17,7 +17,7 @@ function BookCard({
         <Card.Text>{authors}</Card.Text>
         <Card.Text>{description}</Card.Text>
         <Card.Link href={link}>View</Card.Link>
-        {saved ? saveButton : deleteButton}
+        {saved ? deleteButton : saveButton}
       </Card.Body>
     </Card>
   );
