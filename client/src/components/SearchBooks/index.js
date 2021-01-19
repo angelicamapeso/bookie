@@ -3,6 +3,9 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import BookCard from "../BookCard";
 import { searchBooks } from "../../utils/API";
 
 function SearchBooks() {
@@ -25,24 +28,33 @@ function SearchBooks() {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Group controlId="search">
-        <Form.Label>Search</Form.Label>
-        <InputGroup>
-          <Form.Control
-            type="text"
-            placeholder="Book title"
-            ref={searchInput}
-          />
-          <InputGroup.Append>
-            <Button variant="primary" type="submit">
-              Search book title
-            </Button>
-          </InputGroup.Append>
-        </InputGroup>
-      </Form.Group>
-      {err ? <Alert variant="warning">{err}</Alert> : <></>}
-    </Form>
+    <>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group controlId="search">
+          <Form.Label>Search</Form.Label>
+          <InputGroup>
+            <Form.Control
+              type="text"
+              placeholder="Book title"
+              ref={searchInput}
+            />
+            <InputGroup.Append>
+              <Button variant="primary" type="submit">
+                Search book title
+              </Button>
+            </InputGroup.Append>
+          </InputGroup>
+        </Form.Group>
+        {err ? <Alert variant="warning">{err}</Alert> : <></>}
+      </Form>
+      <Row>
+        {searchResults.map(book => (
+          <Col xs={12} key={book.booksId}>
+            <BookCard book={book} />
+          </Col>
+        ))}
+      </Row>
+    </>
   );
 }
 
