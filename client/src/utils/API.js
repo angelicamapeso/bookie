@@ -1,5 +1,18 @@
 const API_KEY = process.env.REACT_APP_API_KEY;
 
+export function saveBook(book) {
+  const toSend = { ...book };
+  return fetch("/api/books", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(toSend),
+  })
+    .then(response => response.json())
+    .then(result => result.data);
+}
+
 export function searchBooks(search) {
   return fetch(
     `https://www.googleapis.com/books/v1/volumes?q=${search}&key=${API_KEY}`
