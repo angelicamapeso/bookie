@@ -29,8 +29,8 @@ router.post("/books", async (req, res) => {
 
 router.delete("/books/:id", async (req, res) => {
   try {
-    const _id = mongoose.Types.ObjectId(req.params.id);
-    const result = await Book.deleteOne({ _id });
+    const booksId = req.params.id;
+    const result = await Book.deleteOne({ booksId });
     if (result.deletedCount === 0) {
       return res.status(404).json({ err: "Book not found in database." });
     }
