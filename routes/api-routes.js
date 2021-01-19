@@ -20,7 +20,8 @@ router.post("/books", async (req, res) => {
       req.body,
       { upsert: true }
     );
-    res.status(201).json({ data: result });
+    const newBook = await Book.findOne({ booksId: req.body.booksId });
+    res.status(201).json({ data: newBook });
   } catch (err) {
     res.status(500).json({ err: err.message });
   }
