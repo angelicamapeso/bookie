@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { getSavedBooks } from "./API.js";
+import { getSavedBooks, saveBook } from "./API.js";
 
 const BookContext = createContext();
 
@@ -12,7 +12,13 @@ export function BookProvider(props) {
     });
   }, []);
 
-  return <BookContext.Provider value={{ savedBooks }} {...props} />;
+  const handleSave = book => {
+    saveBook(book).then(result => {
+      setSavedBooks(prevState => [...prevState, result]);
+    });
+  };
+
+  return <BookContext.Provider value={{ savedBooks, handleSave }} {...props} />;
 }
 
 export function useBooks() {
