@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { getSavedBooks, saveBook } from "./API.js";
+import { getSavedBooks, saveBook, deleteBook } from "./API.js";
 
 const BookContext = createContext();
 
@@ -18,7 +18,20 @@ export function BookProvider(props) {
     });
   };
 
-  return <BookContext.Provider value={{ savedBooks, handleSave }} {...props} />;
+  const handleDelete = booksId => {
+    deleteBook(booksId).then(result => {
+      setSavedBooks(prevState =>
+        prevState.filter(book => book.booksId !== booksId)
+      );
+    });
+  };
+
+  return (
+    <BookContext.Provider
+      value={{ savedBooks, handleSave, handleDelete }}
+      {...props}
+    />
+  );
 }
 
 export function useBooks() {
