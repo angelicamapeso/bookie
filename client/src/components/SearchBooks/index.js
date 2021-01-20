@@ -5,9 +5,10 @@ import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { markSearchSaved } from "../../utils/formatter";
 import { searchBooks } from "../../utils/API";
 
-function SearchBooks({ setSearchResults }) {
+function SearchBooks({ setSearchResults, savedBooks }) {
   const [err, setErr] = useState("");
   const searchInput = useRef();
 
@@ -20,7 +21,7 @@ function SearchBooks({ setSearchResults }) {
 
     searchBooks(toSearch).then(results => {
       setErr("");
-      setSearchResults(results);
+      setSearchResults(markSearchSaved(savedBooks, results));
     });
   };
 

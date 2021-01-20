@@ -10,14 +10,15 @@ function Search() {
   const { savedBooks } = useBooks();
 
   useEffect(() => {
-    if (searchResults.length > 0) {
-      setSearchResults(prevState => markSearchSaved(savedBooks, prevState));
-    }
-  }, [savedBooks, searchResults]);
+    setSearchResults(prevState => markSearchSaved(savedBooks, prevState));
+  }, [savedBooks]);
 
   return (
     <Container>
-      <SearchBooks setSearchResults={setSearchResults} />
+      <SearchBooks
+        setSearchResults={setSearchResults}
+        savedBooks={savedBooks}
+      />
       <SearchResults searchResults={searchResults} />
     </Container>
   );
