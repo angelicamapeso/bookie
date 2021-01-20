@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { BookProvider } from "./utils/BookContext";
 import MainNav from "./components/MainNav";
 import Search from "./pages/Search";
+import Recommended from "./pages/Recommended";
 
 function App() {
   return (
@@ -11,9 +12,7 @@ function App() {
         <MainNav />
         <Switch>
           <Route exact path="/" component={Search} />
-          <Route exact path="/recommended">
-            <h1>Recommended</h1>
-          </Route>
+          <Route exact path="/recommended" component={Recommended} />
         </Switch>
       </Router>
     </BookProvider>
