@@ -16,8 +16,15 @@ a.view-link {
 
 a.view-link:hover,
 a.view-link:focus,
-a.view-link:active {
+a.view-link:active,
+button.delete-button {
   color: white;
   background-color: #222336;
   border: 1px solid #222336;
+}
+
+button.delete-button:hover,
+button.delete-button:focus,
+button.delete-button:active {
+  background-color: #454770;
 }
