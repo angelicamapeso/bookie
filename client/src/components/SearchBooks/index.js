@@ -56,7 +56,7 @@ function SearchBooks({ setSearchResults, savedBooks }) {
         </Col>
       </Row>
       {err ? (
-        <Row className="py-3">
+        <Row className="pb-3">
           <Col>
             <Alert variant="danger">{err}</Alert>
           </Col>
