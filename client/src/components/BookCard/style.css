@@ -46,3 +46,15 @@ button.save-button:active {
   background-color: #521d1d;
   border: 1px solid #521d1d;
 }
+
+a.view-link:focus,
+a.view-link:active,
+button.delete-button:focus,
+button.delete-button:active {
+  box-shadow: 0 0 0 0.2rem rgba(34, 35, 54, 0.25);
+}
+
+button.save-button:focus,
+button.save-button:active {
+  box-shadow: 0 0 0 0.2rem rgba(149, 55, 55, 0.25);
+}
