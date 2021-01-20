@@ -7,6 +7,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { markSearchSaved } from "../../utils/formatter";
 import { searchBooks } from "../../utils/API";
+import "./style.css";
 
 function SearchBooks({ setSearchResults, savedBooks }) {
   const [err, setErr] = useState("");
@@ -34,12 +35,13 @@ function SearchBooks({ setSearchResults, savedBooks }) {
             <Form.Group controlId="search" className="mb-0">
               <InputGroup>
                 <Form.Control
+                  id="search-input"
                   type="text"
                   placeholder="Book title"
                   ref={searchInput}
                 />
                 <InputGroup.Append>
-                  <Button variant="primary" type="submit">
+                  <Button variant="primary" type="submit" id="search-button">
                     Search book title
                   </Button>
                 </InputGroup.Append>

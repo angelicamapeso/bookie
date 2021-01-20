@@ -1,0 +1,17 @@
+#search-input {
+  background-color: transparent;
+  border-radius: 0;
+  border-style: none none solid none;
+  border-color: #953737;
+  border-width: 2px;
+  transition: background-color 0.5s;
+}
+
+#search-input:hover {
+  background-color: white;
+}
+
+#search-input:focus {
+  box-shadow: none;
+  background-color: white;
+}
