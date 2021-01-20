@@ -28,7 +28,7 @@ function SearchBooks({ setSearchResults, savedBooks }) {
 
   return (
     <>
-      <Row>
+      <Row className="mt-4 mb-4">
         <Col className="d-md-flex flex-row align-items-end">
           <h1 className="mb-0 mr-4 mb-1 mb-md-0">Search for</h1>
           <Form onSubmit={handleSubmit} className="flex-grow-1">
