@@ -1,18 +1,13 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import BookCard from "../BookCard";
 import { searchBooks } from "../../utils/API";
-import { useBooks } from "../../utils/BookContext";
-import { markSearchSaved } from "../../utils/formatter";
 
-function SearchBooks() {
-  const [searchResults, setSearchResults] = useState([]);
-  const { savedBooks } = useBooks();
+function SearchBooks({ setSearchResults }) {
   const [err, setErr] = useState("");
   const searchInput = useRef();
 
@@ -25,13 +20,9 @@ function SearchBooks() {
 
     searchBooks(toSearch).then(results => {
       setErr("");
-      setSearchResults(markSearchSaved(savedBooks, results));
+      setSearchResults(results);
     });
   };
-
-  useEffect(() => {
-    setSearchResults(prevState => markSearchSaved(savedBooks, prevState));
-  }, [savedBooks]);
 
   return (
     <>
@@ -65,13 +56,6 @@ function SearchBooks() {
       ) : (
         <></>
       )}
-      <Row>
-        {searchResults.map(book => (
-          <Col xs={12} key={book.booksId}>
-            <BookCard book={book} />
-          </Col>
-        ))}
-      </Row>
     </>
   );
 }
