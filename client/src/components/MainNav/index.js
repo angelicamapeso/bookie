@@ -3,14 +3,15 @@ import { Link } from "react-router-dom";
 import logo from "./bookie-logo.svg";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import "./style.css";
 
 function MainNav() {
   return (
-    <Navbar bg="light" className="border-bottom py-0">
-      <Navbar.Brand href="/" className="p-2">
+    <Navbar className="border-bottom py-0" id="main-nav">
+      <Navbar.Brand href="/" className="py-3 px-3" id="nav-brand">
         <img
           src={logo}
-          className="d-inline-block align-top mr-2"
+          className="d-inline-block align-top mr-3"
           width={30}
           height={30}
           alt="Bookie logo"
