@@ -30,7 +30,7 @@ function SearchBooks({ setSearchResults, savedBooks }) {
     <>
       <Row>
         <Col className="d-md-flex flex-row align-items-end">
-          <h1 className="mb-0 mr-4">Search for</h1>
+          <h1 className="mb-0 mr-4 mb-1 mb-md-0">Search for</h1>
           <Form onSubmit={handleSubmit} className="flex-grow-1">
             <Form.Group controlId="search-input" className="mb-0">
               <InputGroup id="search-input-group">
