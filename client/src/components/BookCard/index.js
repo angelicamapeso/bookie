@@ -39,11 +39,19 @@ function BookCard({
         />
       </div>
       <Card.Body>
-        <Card.Title>{title}</Card.Title>
-        <Card.Text>{authors}</Card.Text>
+        <div className="d-flex flex-row align-items-start mb-3">
+          <div>
+            <Card.Title>{title}</Card.Title>
+            <Card.Text>{authors}</Card.Text>
+          </div>
+          <div className="ml-auto">
+            <Card.Link href={link} className="mr-3">
+              View
+            </Card.Link>
+            {saved ? deleteButton : saveButton}
+          </div>
+        </div>
         <Card.Text>{description}</Card.Text>
-        <Card.Link href={link}>View</Card.Link>
-        {saved ? deleteButton : saveButton}
       </Card.Body>
     </Card>
   );
