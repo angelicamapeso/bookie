@@ -51,9 +51,9 @@ function BookCard({
           </Col>
           <Col
             xs={4}
-            className="d-flex flex-sm-column flex-md-row align-items-end align-items-md-start justify-content-md-end"
+            className="d-flex flex-sm-column flex-md-row align-items-stretch align-items-md-start justify-content-md-end"
           >
-            <Card.Link href={link} className="mr-md-3 mr-3 mb-2">
+            <Card.Link href={link} className="btn mr-md-3 mb-2 view-link">
               View
             </Card.Link>
             {saved ? deleteButton : saveButton}
