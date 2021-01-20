@@ -13,7 +13,7 @@ import { markSearchSaved } from "../../utils/formatter";
 function SearchBooks() {
   const [searchResults, setSearchResults] = useState([]);
   const { savedBooks } = useBooks();
-  const [err, setErr] = useState("");
+  const [err, setErr] = useState("hello");
   const searchInput = useRef();
 
   const handleSubmit = e => {
@@ -35,24 +35,36 @@ function SearchBooks() {
 
   return (
     <>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="search">
-          <Form.Label>Search</Form.Label>
-          <InputGroup>
-            <Form.Control
-              type="text"
-              placeholder="Book title"
-              ref={searchInput}
-            />
-            <InputGroup.Append>
-              <Button variant="primary" type="submit">
-                Search book title
-              </Button>
-            </InputGroup.Append>
-          </InputGroup>
-        </Form.Group>
-        {err ? <Alert variant="warning">{err}</Alert> : <></>}
-      </Form>
+      <Row>
+        <Col className="d-md-flex flex-row align-items-end">
+          <h1 className="mb-0 mr-4">Search for</h1>
+          <Form onSubmit={handleSubmit} className="flex-grow-1">
+            <Form.Group controlId="search" className="mb-0">
+              <InputGroup>
+                <Form.Control
+                  type="text"
+                  placeholder="Book title"
+                  ref={searchInput}
+                />
+                <InputGroup.Append>
+                  <Button variant="primary" type="submit">
+                    Search book title
+                  </Button>
+                </InputGroup.Append>
+              </InputGroup>
+            </Form.Group>
+          </Form>
+        </Col>
+      </Row>
+      {err ? (
+        <Row className="py-3">
+          <Col>
+            <Alert variant="danger">{err}</Alert>
+          </Col>
+        </Row>
+      ) : (
+        <></>
+      )}
       <Row>
         {searchResults.map(book => (
           <Col xs={12} key={book.booksId}>
