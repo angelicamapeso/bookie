@@ -3,8 +3,7 @@
   font-size: 1.25rem;
 }
 
-#search-input {
-  background-color: transparent;
+#search-input-group {
   border-radius: 0;
   border-style: none none solid none;
   border-color: #953737;
@@ -12,11 +11,29 @@
   transition: background-color 0.5s;
 }
 
-#search-input:hover {
+#search-input-group:hover,
+#search-input-group:hover,
+#search-input-group:focus,
+#search-input-group:active {
   background-color: white;
+}
+
+#search-input,
+#search-button {
+  border: none;
+  background-color: transparent;
 }
 
 #search-input:focus {
   box-shadow: none;
-  background-color: white;
+}
+
+#search-button {
+  color: #953737;
+}
+
+#search-button:hover,
+#search-button:focus,
+#search-button:active {
+  color: #222336;
 }

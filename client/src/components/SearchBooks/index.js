@@ -35,13 +35,19 @@ function SearchBooks({ setSearchResults, savedBooks }) {
             <Form.Group controlId="search-input" className="mb-0">
               <InputGroup id="search-input-group">
                 <Form.Control
+                  aria-label="Book search input"
                   type="text"
                   placeholder="Book title"
                   ref={searchInput}
                 />
                 <InputGroup.Append>
-                  <Button variant="primary" type="submit" id="search-button">
-                    Search book title
+                  <Button
+                    variant="primary"
+                    type="submit"
+                    id="search-button"
+                    title="Submit your search"
+                  >
+                    <i className="fas fa-search mr-2" aria-hidden="true"></i>
                   </Button>
                 </InputGroup.Append>
               </InputGroup>
