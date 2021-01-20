@@ -3,3 +3,21 @@
   border-top-left-radius: calc(0.25rem - 1px);
   border-bottom-left-radius: calc(0.25rem - 1px);
 }
+
+button.save-button,
+button.delete-button,
+a.view-link {
+  border-radius: 0;
+}
+
+a.view-link {
+  border: 1px solid #222336;
+}
+
+a.view-link:hover,
+a.view-link:focus,
+a.view-link:active {
+  color: white;
+  background-color: #222336;
+  border: 1px solid #222336;
+}
