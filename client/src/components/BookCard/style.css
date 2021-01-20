@@ -27,4 +27,17 @@ button.delete-button:hover,
 button.delete-button:focus,
 button.delete-button:active {
   background-color: #454770;
+  border: 1px solid #454770;
+}
+
+button.save-button {
+  background-color: #953737;
+  border: 1px solid #953737;
+}
+
+button.save-button:hover,
+button.save-button:focus,
+button.save-button:active {
+  background-color: #521d1d;
+  border: 1px solid #521d1d;
 }
