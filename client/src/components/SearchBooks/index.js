@@ -13,7 +13,7 @@ import { markSearchSaved } from "../../utils/formatter";
 function SearchBooks() {
   const [searchResults, setSearchResults] = useState([]);
   const { savedBooks } = useBooks();
-  const [err, setErr] = useState("hello");
+  const [err, setErr] = useState("");
   const searchInput = useRef();
 
   const handleSubmit = e => {
