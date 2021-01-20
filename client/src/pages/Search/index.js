@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useBooks } from "../../utils/BookContext";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import SearchBooks from "../../components/SearchBooks";
+import SearchResults from "../../components/SearchResults";
+import { markSearchSaved } from "../../utils/formatter";
 
 function Search() {
+  const [searchResults, setSearchResults] = useState([]);
+  const { savedBooks } = useBooks();
+
+  useEffect(() => {
+    if (searchResults.length > 0) {
+      setSearchResults(prevState => markSearchSaved(savedBooks, prevState));
+    }
+  }, [savedBooks, searchResults]);
+
   return (
     <Container>
-      <SearchBooks />
+      <SearchBooks setSearchResults={setSearchResults} />
+      <SearchResults searchResults={searchResults} />
     </Container>
   );
 }
