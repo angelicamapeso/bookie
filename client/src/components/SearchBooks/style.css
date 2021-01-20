@@ -30,10 +30,16 @@
 
 #search-button {
   color: #953737;
+  border-radius: 0;
 }
 
 #search-button:hover,
 #search-button:focus,
 #search-button:active {
   color: #222336;
+}
+
+#search-button:focus,
+#search-button:active {
+  box-shadow: 0 0 0 0.2rem rgba(34, 35, 54, 0.25);
 }
