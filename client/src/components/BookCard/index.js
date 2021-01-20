@@ -2,6 +2,7 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { useBooks } from "../../utils/BookContext";
+import "./style.css";
 
 function BookCard({
   book: { booksId, title, authors, description, image, link, saved },
@@ -29,8 +30,14 @@ function BookCard({
   );
 
   return (
-    <Card className="flex-row mb-3" {...props}>
-      <Card.Img src={image} style={{ maxHeight: "200px", width: "auto" }} />
+    <Card className="flex-row mb-3 border-0" {...props}>
+      <div className="card-img-wrap p-3">
+        <Card.Img
+          className="shadow"
+          src={image}
+          style={{ maxHeight: "200px", width: "auto" }}
+        />
+      </div>
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>{authors}</Card.Text>
