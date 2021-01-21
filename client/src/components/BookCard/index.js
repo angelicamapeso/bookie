@@ -46,8 +46,17 @@ function BookCard({
       <Card.Body>
         <Row className="justify-content-between mb-3">
           <Col>
-            <Card.Title>{title}</Card.Title>
-            <Card.Text>{authors}</Card.Text>
+            <Card.Title className="mb-1">{title}</Card.Title>
+            <Card.Text>
+              {authors && authors.length > 0 ? (
+                <>
+                  <span className="font-weight-bold">Author(s): </span>
+                  {authors.join(", ")}
+                </>
+              ) : (
+                ""
+              )}
+            </Card.Text>
           </Col>
           <Col
             xs={4}
