@@ -19,11 +19,11 @@ function MainNav() {
         Bookie
       </Navbar.Brand>
       <Nav className="ml-auto">
-        <Link to="/" className="nav-link">
+        <Link to="/" className="nav-link mr-3">
           Search
         </Link>
         <Link to="/recommended" className="nav-link">
-          Recommended books
+          Recommended Books
         </Link>
       </Nav>
     </Navbar>
