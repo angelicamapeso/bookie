@@ -14,6 +14,7 @@ export function BookProvider(props) {
 
   const handleSave = book => {
     saveBook(book).then(result => {
+      result.saved = true;
       setSavedBooks(prevState => [...prevState, result]);
     });
   };
