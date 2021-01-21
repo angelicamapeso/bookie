@@ -5,6 +5,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { useBooks } from "../../utils/BookContext";
 import "./style.css";
+import logo from "../MainNav/bookie-logo.svg";
 
 function BookCard({
   book: { booksId, title, authors, description, image, link, saved },
@@ -38,12 +39,16 @@ function BookCard({
     <Card className="flex-row mb-3 border-0" {...props}>
       <div className="card-img-wrap p-3">
         <Card.Img
-          className="shadow"
-          src={image}
-          style={{ maxHeight: "200px", width: "auto" }}
+          className={image ? "shadow" : "mt-4"}
+          src={image ? image : logo}
+          style={
+            image
+              ? { height: "auto", width: "100%" }
+              : { height: "auto", width: "50%" }
+          }
         />
       </div>
-      <Card.Body>
+      <Card.Body className="card-info">
         <Row className="justify-content-between mb-3">
           <Col>
             <Card.Title className="mb-1">{title}</Card.Title>
@@ -60,7 +65,7 @@ function BookCard({
           </Col>
           <Col
             xs={4}
-            className="d-flex flex-sm-column flex-md-row align-items-stretch align-items-md-start justify-content-md-end"
+            className="d-flex flex-column flex-md-row align-items-stretch align-items-md-start justify-content-md-end pl-0"
           >
             <Card.Link href={link} className="btn mr-md-3 mb-2 view-link">
               View
@@ -68,7 +73,7 @@ function BookCard({
             {saved ? deleteButton : saveButton}
           </Col>
         </Row>
-        <Card.Text>{description}</Card.Text>
+        <Card.Text>{description ? description : ""}</Card.Text>
       </Card.Body>
     </Card>
   );

@@ -25,15 +25,20 @@ export function searchBooks(search) {
   )
     .then(response => response.json())
     .then(result =>
-      result.items.map(item => ({
-        booksId: item.id,
-        title: item.volumeInfo.title,
-        authors: item.volumeInfo.authors,
-        description: item.volumeInfo.description,
-        image: item.volumeInfo.imageLinks.thumbnail,
-        link: item.volumeInfo.infoLink,
-        saved: false,
-      }))
+      result.items.map(item => {
+        const img = item.volumeInfo.imageLinks
+          ? item.volumeInfo.imageLinks.thumbnail
+          : "";
+        return {
+          booksId: item.id,
+          title: item.volumeInfo.title,
+          authors: item.volumeInfo.authors,
+          description: item.volumeInfo.description,
+          image: img,
+          link: item.volumeInfo.infoLink,
+          saved: false,
+        };
+      })
     );
 }
 
