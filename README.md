@@ -2,6 +2,8 @@
 
 ![Bookie Homepage](./img/home.png)
 
+:link: [Visit Bookie](https://bookie-search.herokuapp.com/)
+
 Bookie is a place for book enthusiasts to share their recommendeds. Head to the Search page to look up a book and save it to the list, or go to the Recommended page to see what others have already recommended.
 
 ![Bookie Recommendeds](./img/recommended.png)
