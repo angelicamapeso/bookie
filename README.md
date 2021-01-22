@@ -40,3 +40,7 @@ Your app should now be running on <http://localhost:3000>. The Express server sh
 
 - [Express](https://expressjs.com/)
 - [Mongoose](https://mongoosejs.com/)
+
+## License
+
+Bookie is licensed under the **MIT License**.
